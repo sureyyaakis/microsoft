@@ -1,0 +1,17 @@
+' Create a connection to the database
+Dim conn As New ADODB.Connection
+conn.Open "Provider=SQLOLEDB;Data Source=MySQLServer;Initial Catalog=MyDatabase;User ID=MyUsername;Password=MyPassword"
+
+' Create a recordset to hold the data
+Dim rs As New ADODB.Recordset
+rs.Open "SELECT * FROM Customers", conn, adOpenStatic, adLockReadOnly
+
+' Iterate through the recordset and display the data
+Do Until rs.EOF
+  Debug.Print rs("FirstName"), rs("LastName"), rs("Email")
+  rs.MoveNext
+Loop
+
+' Clean up resources
+rs.Close
+conn.Close
