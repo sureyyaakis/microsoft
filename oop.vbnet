@@ -1,0 +1,14 @@
+Class Animal
+  Property Name As String
+  Property Age As Integer
+  Function MakeSound() As String
+    Return "Animal Sound"
+  End Function
+End Class
+
+Class Dog
+  Inherits Animal
+  Function MakeSound() As String
+    Return "Woof!"
+  End Function
+End Class
